@@ -1,23 +1,24 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import styled from 'styled-components';
-import logo from '../pictures/Background.png';
 
-const Logo = styled.img`
-  height: 3em;
-`
 const Styles = styled.div`
   .navbar {
     background-color: #000;
   }
 
   .navbar-nav {
-    
+    margin: 0 2em;
   }
 
   .nav-link {
     font-size: 2em;
     margin: 0 0.25em;
+  }
+
+  p {
+    display: inline;
+    font-size: 2.5em;
   }
 `
 
@@ -25,9 +26,9 @@ const Styles = styled.div`
 function Header() {
   return (
     <Styles>
-      <Navbar variant="dark" expand="sm" fixed="top">
+      <Navbar variant="dark" expand="md" fixed="top" >
         <Navbar.Brand href="#home">
-          <Logo src={logo} alt="logo" />
+          <p>Barber Andrew</p>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
