@@ -1,8 +1,10 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import styled from 'styled-components';
 
 const Styles = styled.div`
+
   .navbar {
     background-color: #000;
   }
@@ -19,6 +21,15 @@ const Styles = styled.div`
   p {
     display: inline;
     font-size: 2.5em;
+  }
+
+ @media(max-width: ${breakpoints.md}) {
+    p {
+      font-size: 1.5em;
+    }
+    .nav-link {
+      font-size: 1.5em;
+    }
   }
 `
 
