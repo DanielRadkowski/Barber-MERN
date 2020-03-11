@@ -7,6 +7,8 @@ import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
 const Styles = styled.div`
 
+color: white;
+
 .container-fluid {
     padding: 5em 0;
     position: relative;
@@ -101,7 +103,7 @@ function LogoContainer() {
                         <img
                             className="d-block w-100"
                             src={logo}
-                            alt="Second slide"
+                            alt="logo"
                         />
                     </Col>
                     <Col className="my-col" sm={4}>
@@ -109,7 +111,7 @@ function LogoContainer() {
                     </Col>
                 </Row>
                 <Row className="my-row justify-content-center">
-                    <Col className="my-col" md={6} lg={5}>
+                    <Col className="my-col" xs={10} md={6} lg={5}>
                         <BookButton />
                     </Col>
                 </Row>

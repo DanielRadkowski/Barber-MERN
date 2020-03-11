@@ -1,5 +1,6 @@
 import React from 'react';
-import LogoContainer from './LogoContainer'
+import LogoContainer from './LogoContainer';
+import Socials from './Socials';
 import { Carousel } from 'react-bootstrap';
 import item1 from '../pictures/pexels-photo-3654938.jpeg';
 import item2 from '../pictures/barber.jpg';
@@ -9,8 +10,14 @@ import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
 const Styles = styled.div`
 
-.carousel-item{
-  height: 55vw;
+height: 55vw;
+
+.carousel {
+  height: inherit;
+}
+
+.carousel-inner {
+  height: inherit;
 }
 
 .bg {
@@ -18,19 +25,18 @@ const Styles = styled.div`
   position: absolute;
   right: 0px;
   left: 0px;
+
 }
 
 @media(max-width: ${breakpoints.md}) {
 
-  .carousel-item{
-    height: 60vw;
-  }
+  height: 60vw;
+  
+} 
 
 @media (min-width: ${breakpoints.xs}) and (max-width: ${breakpoints.sm}) {
 
-  .carousel-item{
-    height: 65vw;
-  }
+  height: 65vw;
 
   .carousel-indicators {
     margin: 0 auto;
@@ -67,6 +73,7 @@ function Home() {
         </Carousel.Item>
       </Carousel>
       <LogoContainer />
+      {/* <Socials /> */}
     </Styles>
     
 

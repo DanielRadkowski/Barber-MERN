@@ -24,6 +24,13 @@ const Styles = styled.div`
       font-size: 5vw;
     }
   }
+
+  @media (min-width: ${breakpoints.xs}) and (max-width: ${breakpoints.sm}) {
+
+    .btn-lg {
+      margin: 2vw 0 0 0;
+    }
+  }
 `
 
 function BookButton() {
