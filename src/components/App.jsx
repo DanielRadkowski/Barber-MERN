@@ -12,6 +12,7 @@ function App() {
         <Header />
         <Home />
         <Services />
+        <Contact />
         <Footer />
         
      </React.Fragment>

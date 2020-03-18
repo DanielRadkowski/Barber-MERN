@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Row, Card } from 'react-bootstrap';
+import { Container, Col, Row,} from 'react-bootstrap';
 import pole from '../pictures/pole.png';
 import styled from 'styled-components';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
@@ -7,9 +7,9 @@ import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 const Styles = styled.div`
 
 .container-fluid {
-    color: white;
-    padding: 4em 0 7em 0;
-    width: 70vw;
+    padding: 2em 0 7em 0;
+    width: 35vw;
+    
     
     h1 {
       font-size: 6vw;
@@ -22,31 +22,61 @@ const Styles = styled.div`
     }
   }
 
-  .my-col {
-    //border: 5px solid red;
-    place-self: center;
-    text-align: center;
+  @media(max-width: ${breakpoints.md}) {
+    .container-fluid {
+        width: 45vw;
+        h1 {
+            font-size: 8vw;
+        }
+        img {
+            max-width: 3.6vw;
+        }    
+    }
   }
+
+  @media(max-width: ${breakpoints.sm}) {
+    .container-fluid {
+        padding: 2em 0 4em 0;
+        width: 65vw;
+        h1 {
+            font-size: 10vw;
+        }
+        img {
+            max-width: 4.6vw;
+        }    
+    }
+  }
+
+  @media (min-width: ${breakpoints.xs}) and (max-width: ${breakpoints.sm}) {
+    .container-fluid {
+        padding: 0 0 4em 0;
+        width: 65vw;
+        h1 {
+            font-size: 11vw;
+        }
+        img {
+            max-width: 5vw;
+        }    
+    }  
+  }  
 `
 
 function SectionHeader(props) {
     return (
-        <Styles>
-            <Container fluid={true} className="justify-items-strech">
-                <Row className="justify-content-center">
-                    <Col className="my-col" sm={1}>
+        <Styles className="text-white">
+            <Container fluid={true} className="text-center">
+                <Row className="justify-content-center align-items-center">
+                    <Col className="" >
                         <img
-                            //className="d-block w-100"
                             src={pole}
                             alt="pole"
                         />
                     </Col>
-                    <Col className="my-col" sm={4}>
+                    <Col className="" >
                         <h1>{props.name}</h1>
                     </Col>
-                    <Col className="my-col" sm={1}>
+                    <Col className="">
                         <img
-                            //className="d-block w-100"
                             src={pole}
                             alt="pole"
                         />

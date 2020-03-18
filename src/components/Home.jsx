@@ -11,7 +11,7 @@ import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 const Styles = styled.div`
 
 height: 55vw;
-
+position: relative;
 .carousel {
   height: inherit;
 }
@@ -23,8 +23,10 @@ height: 55vw;
 .bg {
   z-index: 1;
   position: absolute;
+  top: 0px;
   right: 0px;
   left: 0px;
+
 
 }
 
@@ -36,7 +38,7 @@ height: 55vw;
 
 @media (min-width: ${breakpoints.xs}) and (max-width: ${breakpoints.sm}) {
 
-  height: 65vw;
+  height: 70vw;
 
   .carousel-indicators {
     margin: 0 auto;
@@ -46,7 +48,7 @@ height: 55vw;
 
 function Home() {
   return (
-    <Styles id="home">
+    <Styles id="home" className="p-5">
 
       <Carousel interval={false} className="bg">
         <Carousel.Item>

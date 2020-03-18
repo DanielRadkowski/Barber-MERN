@@ -7,17 +7,14 @@ import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
 const Styles = styled.div`
 
-color: white;
-
 .container-fluid {
-    padding: 5em 0;
+    padding: 3em 0;
     position: relative;
     z-index: 2;
     width: 70vw;
     
-    p {
+    h1 {
       font-size: 7vw;
-      text-align: center;
       text-shadow: 0.25vw 0.25vw #000;
     }
   
@@ -28,24 +25,20 @@ color: white;
     }
   }
 
-  .my-col {
-    place-self: center;
-  }
-
   .my-row {
-    padding: 5vw 0 0 0;
+    padding: 3vw 0 0 0;
   }
 
-  .small-p {
+  .small-h1 {
     display: none;
   }
 
   @media(max-width: ${breakpoints.md}) {
 
     .container-fluid {
-      padding: 2em 0;
+      padding: 1em 0 ;
       
-      p {
+      h1 {
         font-size: 7vw;
       }
     
@@ -62,7 +55,7 @@ color: white;
   @media(max-width: ${breakpoints.sm}) {
   
     .container-fluid {
-      padding: 1em 0 5em 0;
+      padding: 2em 0 5em 0;
     }
   
     .my-row {
@@ -73,45 +66,46 @@ color: white;
   @media (min-width: ${breakpoints.xs}) and (max-width: ${breakpoints.sm}) {
 
     .container-fluid {
-      padding: 0; 
+      padding: 0;
     }
-    
+  
     .my-row {
       padding: 0;
     }
   
-    .small-p {
+    .small-h1 {
       display: block;
     }
 
-    .normal-p {
+    .normal-h1 {
       display: none;
     }
   }
 `
 
+
 function LogoContainer() {
     return (
-        <Styles>
-            <Container fluid={true} className="justify-items-strech">
-                <Row className="justify-content-center">
-                    <Col className="my-col" sm={4}>
-                        <p className="normal-p">Barber</p>
-                        <p className="small-p">Barber Andrew</p>
+        <Styles className="text-white h-100">
+            <Container fluid={true} className="text-center">
+                <Row className="justify-content-center align-items-center">
+                    <Col className="" sm={4}>
+                        <h1 className="normal-h1">Barber</h1>
+                        <h1 className="small-h1">Barber Andrew</h1>
                     </Col>
-                    <Col className="my-col" sm={3}>
+                    <Col className="" sm={3}>
                         <img
                             className="d-block w-100"
                             src={logo}
                             alt="logo"
                         />
                     </Col>
-                    <Col className="my-col" sm={4}>
-                        <p className="normal-p">Andrew</p>
+                    <Col className="" sm={4}>
+                        <h1 className="normal-h1">Andrew</h1>
                     </Col>
                 </Row>
                 <Row className="my-row justify-content-center">
-                    <Col className="my-col" xs={10} md={6} lg={5}>
+                    <Col className="">
                         <BookButton />
                     </Col>
                 </Row>

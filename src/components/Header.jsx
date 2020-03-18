@@ -14,17 +14,19 @@ const Styles = styled.div`
   }
 
   .nav-link {
-    font-size: 2em;
+    
+    font-size: 1.5em;
     margin: 0 0.25em;
   }
 
-  p {
+  h1 {
+
     display: inline;
-    font-size: 2.5em;
+    font-size: 2em;
   }
 
  @media(max-width: ${breakpoints.md}) {
-    p {
+    h1 {
       font-size: 1.5em;
     }
     .nav-link {
@@ -39,7 +41,7 @@ function Header() {
     <Styles>
       <Navbar variant="dark" expand="md" fixed="top" >
         <Navbar.Brand href="#home">
-          <p>Barber Andrew</p>
+          <h1>Barber Andrew</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
