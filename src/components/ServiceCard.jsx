@@ -5,24 +5,34 @@ import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
 const Styles = styled.div`
 
-
-.card {
-  font-size: 3.5vw;
-   
-}
+@media (min-width: ${breakpoints.xs}) {
+  .card {
+    font-size: 1.5em;   
+  }
 .h5 {
-  font-size: 2vw;
-}
-
+    font-size: 0.75em 
+  }
+  
 .card-img-top {
-  width: 17vw;
+    width: 40vw;
+  }
 }
 
-.card-body {
-  padding-bottom: 0;
+@media(min-width: ${breakpoints.sm}) {
+  .card {
+      font-size: 6vw;   
+    }
+  .h5 {
+      font-size: 4.5vw;
+    }
+    
+  .card-img-top {
+      width: 35vw;
+    }  
 }
 
-@media(max-width: ${breakpoints.lg}) {  
+
+@media(min-width: ${breakpoints.md}) {  
     .card {
         font-size: 4vw;     
       }
@@ -34,23 +44,21 @@ const Styles = styled.div`
       }
   }
   
-  @media(max-width: ${breakpoints.md}) {
-    .card {
-        font-size: 6vw;   
-      }
-    .h5 {
-        font-size: 4.5vw;
-      }
-      
-    .card-img-top {
-        width: 35vw;
-      }
-    
-  }
+@media(min-width: ${breakpoints.lg}) { 
   
-  @media (min-width: ${breakpoints.xs}) and (max-width: ${breakpoints.sm}) {
+.card {
+  font-size: 3.5vw;
+   
+}
+.h5 {
+  font-size: 2vw;
+}
 
-  }
+.card-img-top {
+  width: 17vw;
+}
+}
+ 
   
 
 `

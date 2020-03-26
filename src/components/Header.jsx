@@ -13,19 +13,7 @@ const Styles = styled.div`
     margin: 0 2em;
   }
 
-  .nav-link {
-    
-    font-size: 1.5em;
-    margin: 0 0.25em;
-  }
-
-  h1 {
-
-    display: inline;
-    font-size: 2em;
-  }
-
- @media(max-width: ${breakpoints.md}) {
+  @media(min-width: ${breakpoints.xs}) {
     h1 {
       font-size: 1.5em;
     }
@@ -33,6 +21,19 @@ const Styles = styled.div`
       font-size: 1.5em;
     }
   }
+
+  @media(min-width: ${breakpoints.lg}) {
+    h1 {
+      display: inline;
+      font-size: 2em;
+    }
+    .nav-link {
+      font-size: 1.5em;
+      margin: 0 0.25em;
+    }
+
+}
+
 `
 
 

@@ -5,9 +5,6 @@ import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
 const Styles = styled.div`
 
-height: 80vh;
-
-
 .info-window {
   background: white;
   padding: 3px;
@@ -16,16 +13,20 @@ height: 80vh;
     padding: 0 0 5px;
   }
 }
+@media (min-width: ${breakpoints.xs}) {
 
-@media(max-width: ${breakpoints.md}) {
+  height: 60vh;
+}
+
+@media(min-width: ${breakpoints.sm}) {
 
   height: 55vh; 
 } 
 
-@media (min-width: ${breakpoints.xs}) and (max-width: ${breakpoints.sm}) {
+@media(min-width: ${breakpoints.md}) {
 
-  //height: 60vh;
-}
+  height: 80vh; 
+} 
 `
 const position = { lat: 51.078640, lng: 17.043759 };
 

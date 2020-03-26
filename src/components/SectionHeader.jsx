@@ -6,25 +6,24 @@ import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
 const Styles = styled.div`
 
-.container-fluid {
-    padding: 2em 0 7em 0;
-    width: 35vw;
-    
-    
-    h1 {
-      font-size: 6vw;
-      text-shadow: 0.25vw 0.25vw #000;     
-    }
-  
-    img {
-     max-width: 2.6vw;
-     filter: drop-shadow(0.3vw 0.3vw #000);  
-    }
-  }
-
-  @media(max-width: ${breakpoints.md}) {
+@media (min-width: ${breakpoints.xs}) {
     .container-fluid {
-        width: 45vw;
+        padding: 0 0 4em 0;
+        width: 65vw;
+        h1 {
+            font-size: 11vw;
+            text-shadow: 0.25vw 0.25vw #000;
+        }
+        img {
+            max-width: 5vw;
+            filter: drop-shadow(0.3vw 0.3vw #000);
+        }    
+    }  
+  }  
+
+  @media(min-width: ${breakpoints.sm}) {
+    .container-fluid {
+        width: 46vw;
         h1 {
             font-size: 8vw;
         }
@@ -34,31 +33,23 @@ const Styles = styled.div`
     }
   }
 
-  @media(max-width: ${breakpoints.sm}) {
-    .container-fluid {
-        padding: 2em 0 4em 0;
-        width: 65vw;
-        h1 {
-            font-size: 10vw;
-        }
-        img {
-            max-width: 4.6vw;
-        }    
-    }
-  }
+  @media(min-width: ${breakpoints.md}) {
 
-  @media (min-width: ${breakpoints.xs}) and (max-width: ${breakpoints.sm}) {
     .container-fluid {
-        padding: 0 0 4em 0;
-        width: 65vw;
+        padding: 2em 0 7em 0;
+        width: 35vw;
+        
         h1 {
-            font-size: 11vw;
+          font-size: 6vw;       
         }
+      
         img {
-            max-width: 5vw;
-        }    
-    }  
-  }  
+         max-width: 2.6vw; 
+        }
+      }
+    }
+
+
 `
 
 function SectionHeader(props) {

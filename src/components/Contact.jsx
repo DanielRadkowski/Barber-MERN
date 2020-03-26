@@ -11,13 +11,14 @@ background: #d65a31;
 
 @media(max-width: ${breakpoints.md}) {
 
-  h3
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
 } 
 
-@media (min-width: ${breakpoints.xs}) and (max-width: ${breakpoints.sm}) {
-
-  
-}
 `
 
 function Contact() {
@@ -41,7 +42,7 @@ function Contact() {
       </div>
       <MapContainer />
 
-      <BookButton />
+      <BookButton name="Book your visit now!" />
 
     </Styles>
   );
