@@ -2,17 +2,11 @@ import React from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
 import styled from 'styled-components';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
+import Address from './Address';
+import scissors from '../pictures/red-scissors.png';
 
 const Styles = styled.div`
 
-.info-window {
-  background: white;
-  padding: 3px;
-  h1 {
-    font-size: 1.5em;
-    padding: 0 0 5px;
-  }
-}
 @media (min-width: ${breakpoints.xs}) {
 
   height: 60vh;
@@ -41,17 +35,17 @@ function Map(props) {
       defaultZoom={15}
       defaultCenter={position}
     >
-      {props.isMarkerShown && <Marker position={position} />}
+      {props.isMarkerShown &&
+        <Marker
+          position={position}
+          icon={{ url: scissors, scaledSize: new window.google.maps.Size(30, 30) }}
+        />}
 
       <InfoWindow
         onLoad={onLoad}
         position={position}
       >
-        <div className="info-window">
-          <h1>Barber Andrew</h1>
-          <h6>Orzechowa 50</h6>
-          <h6>50-540 Wrocław</h6>
-        </div>
+        <Address />
       </InfoWindow>
     </GoogleMap>
   );
@@ -59,7 +53,7 @@ function Map(props) {
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
-function MapContainer() {
+export default function MapContainer() {
   return (
     <Styles className="px-lg-5 py-5 w-100">
       <WrappedMap
@@ -73,8 +67,5 @@ function MapContainer() {
     </Styles>
   );
 }
-
-
-export default MapContainer;
 
 // 'AIzaSyCwALeLLIErewxUnmbrjoLLaYMHawl7uco'

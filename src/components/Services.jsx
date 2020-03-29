@@ -50,7 +50,7 @@ function createCard(service) {
 }
 
 
-function Services() {
+export default function Services() {
   return (
     <Styles id="services" className="p-5">
       <SectionHeader name="Services" />
@@ -64,5 +64,3 @@ function Services() {
 
 
 }
-
-export default Services;

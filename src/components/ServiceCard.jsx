@@ -63,7 +63,7 @@ const Styles = styled.div`
 
 `
 
-function ServiceCard(props) {
+export default function ServiceCard(props) {
     return (
         <Styles>
             <Card className="p-xs-1 p-xl-3 text-center">
@@ -78,5 +78,3 @@ function ServiceCard(props) {
         </Styles>
     );
 }
-
-export default ServiceCard;

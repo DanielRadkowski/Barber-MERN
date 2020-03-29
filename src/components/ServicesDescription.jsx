@@ -26,7 +26,7 @@ const Styles = styled.div`
 `
 
 
-function ServicesDescription() {
+export default function ServicesDescription() {
     return (
         <Styles className="pb-5 mx-auto">
             <p className="text-justify">
@@ -42,5 +42,3 @@ function ServicesDescription() {
         </Styles>
     );
 }
-
-export default ServicesDescription;

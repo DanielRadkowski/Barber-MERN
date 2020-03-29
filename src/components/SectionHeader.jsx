@@ -52,7 +52,7 @@ const Styles = styled.div`
 
 `
 
-function SectionHeader(props) {
+export default function SectionHeader(props) {
     return (
         <Styles className="text-white">
             <Container fluid={true} className="text-center">
@@ -78,5 +78,3 @@ function SectionHeader(props) {
         </Styles>
     );
 }
-
-export default SectionHeader;

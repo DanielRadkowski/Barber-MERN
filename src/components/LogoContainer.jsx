@@ -73,7 +73,7 @@ const Styles = styled.div`
 `
 
 
-function LogoContainer() {
+export default function LogoContainer() {
     return (
         <Styles className="text-white h-100">
             <Container fluid={true} className="text-center">
@@ -102,5 +102,3 @@ function LogoContainer() {
         </Styles>
     );
 }
-
-export default LogoContainer;

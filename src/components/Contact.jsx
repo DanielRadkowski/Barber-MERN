@@ -9,6 +9,7 @@ const Styles = styled.div`
 
 background: #d65a31;
 
+
 @media(max-width: ${breakpoints.md}) {
 
   h1 {
@@ -21,7 +22,7 @@ background: #d65a31;
 
 `
 
-function Contact() {
+export default function Contact() {
   return (
     <Styles id="contact" className="py-5">
       <SectionHeader name="Contact" />
@@ -43,7 +44,7 @@ function Contact() {
       <MapContainer />
 
       <BookButton name="Book your visit now!" />
-
+    
     </Styles>
   );
 
@@ -51,5 +52,4 @@ function Contact() {
 
 }
 
-export default Contact;
 

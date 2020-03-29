@@ -15,9 +15,9 @@ const Styles = styled.div`
  
 `
 
-function Socials() {
+export default function Socials() {
   return (
-    <Styles className="text-center mr-5">
+    <Styles className="text-center">
         <h6>Connect me on:</h6>
         <div className="d-flex justify-content-around">
         <a href="#face"><i class="my-icon fab fa-facebook-square"></i></a>
@@ -27,5 +27,3 @@ function Socials() {
     </Styles>
   );
 }
-
-export default Socials;

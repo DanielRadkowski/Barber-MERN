@@ -47,11 +47,11 @@ position: relative;
 
 `
 
-function Home() {
+export default function Home() {
   return (
     <Styles id="home" className="p-5">
 
-      <Carousel interval={false} className="bg">
+      <Carousel className="bg">
         <Carousel.Item>
           <img
             className="d-block w-100"
@@ -79,5 +79,3 @@ function Home() {
     </Styles>
   )
 }
-
-export default Home;

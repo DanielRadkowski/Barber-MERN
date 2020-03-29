@@ -37,7 +37,7 @@ const Styles = styled.div`
 `
 
 
-function Header() {
+export default function Header() {
   return (
     <Styles>
       <Navbar variant="dark" expand="md" fixed="top" >
@@ -55,9 +55,4 @@ function Header() {
       </Navbar>
     </Styles>
   );
-
-
-
 }
-
-export default Header;
