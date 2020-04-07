@@ -1,6 +1,6 @@
 import React from 'react';
 import BookButton from './BookButton';
-import logo from '../pictures/head.png';
+import logo from '../../pictures/head.png';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-bootstrap';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
@@ -27,6 +27,7 @@ const Styles = styled.div`
 
     .container-fluid {
       padding: 0;
+      margin: -1em 0 0 0;
     
     img {
       max-width: 15vw;
@@ -36,14 +37,6 @@ const Styles = styled.div`
       padding: 0;
     }
   
-    .small-h1 {
-      display: block;
-    }
-
-    .normal-h1 {
-      display: none;
-    }
-  }
  
 }
   @media(min-width: ${breakpoints.sm}) {
@@ -61,14 +54,6 @@ const Styles = styled.div`
     .my-row {
       padding: 3vw 0 0 0;
     }
-
-      .small-h1 {
-        display: none;
-      }
-    
-      .normal-h1 {
-        display: block;
-      }
   }
 `
 
@@ -76,11 +61,11 @@ const Styles = styled.div`
 export default function LogoContainer() {
     return (
         <Styles className="text-white h-100">
-            <Container fluid={true} className="text-center">
+            <Container fluid={true} className="text-center mx-auto">
                 <Row className="justify-content-center align-items-center">
                     <Col className="" sm={4}>
-                        <h1 className="normal-h1">Barber</h1>
-                        <h1 className="small-h1">Barber Andrew</h1>
+                        <h1 className="d-none d-sm-block">Barber</h1>
+                        <h1 className="d-block d-sm-none">Barber Andrew</h1>
                     </Col>
                     <Col className="" sm={3}>
                         <img
@@ -90,7 +75,7 @@ export default function LogoContainer() {
                         />
                     </Col>
                     <Col className="" sm={4}>
-                        <h1 className="normal-h1">Andrew</h1>
+                        <h1 className="d-none d-sm-block">Andrew</h1>
                     </Col>
                 </Row>
                 <Row className="my-row justify-content-center">

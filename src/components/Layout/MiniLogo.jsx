@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../pictures/head.png';
+import logo from '../../pictures/head.png';
 
 const Styles = styled.div`
 

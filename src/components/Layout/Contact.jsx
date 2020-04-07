@@ -34,7 +34,7 @@ export default function Contact() {
           <h2>Call now and book your visit!</h2>
           <h2>659 852 666</h2>
         </div>
-        <div class="">
+        <div className="">
           <h1>Opening Times:</h1>
           <h2>Monday – Friday: 9.00am – 5.30pm</h2>
           <h2>Saturday: 8.30am – 5.00pm</h2>

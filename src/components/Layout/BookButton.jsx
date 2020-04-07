@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
+import BookForm from '../BookForm';
 
 const Styles = styled.div`
 
@@ -50,11 +51,21 @@ const Styles = styled.div`
 
 export default function BookButton(props) {
 
+  const [modalShow, setModalShow] = useState(false);
+
     return (
         <Styles className="text-white w-100 mx-auto">
-            <Button variant="outline-light" className="Button mx-auto" block size="lg" href="#">
+            <Button 
+              variant="outline-light" 
+              className="Button mx-auto" 
+              block 
+              size="lg" 
+              onClick={() => setModalShow(true)}
+            >
                 {props.name}
              </Button> 
+
+             <BookForm show={modalShow} onHide={() => setModalShow(false)} />
         </Styles>
     );
 }

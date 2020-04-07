@@ -4,7 +4,7 @@ import ServiceCard from './ServiceCard';
 import ServicesDescription from './ServicesDescription';
 import { CardColumns } from 'react-bootstrap';
 import styled from 'styled-components';
-import services from '../services';
+import services from '../../services';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
 

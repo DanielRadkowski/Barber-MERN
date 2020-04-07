@@ -3,7 +3,7 @@ import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "reac
 import styled from 'styled-components';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import Address from './Address';
-import scissors from '../pictures/red-scissors.png';
+import scissors from '../../pictures/red-scissors.png';
 
 const Styles = styled.div`
 

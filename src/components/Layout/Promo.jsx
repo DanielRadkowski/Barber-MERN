@@ -17,7 +17,7 @@ export default function Promo() {
     return (
         <Styles className="pt-sm-5">
             <ResponsiveEmbed aspectRatio="16by9">
-                <embed src="https://www.youtube.com/embed/C6jZtwxYNVM" allowfullscreen></embed>
+                <embed src="https://www.youtube.com/embed/C6jZtwxYNVM" allowFullScreen></embed>
             </ResponsiveEmbed>
         </Styles>
     );

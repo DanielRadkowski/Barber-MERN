@@ -1,9 +1,9 @@
 import React from 'react';
 import LogoContainer from './LogoContainer';
 import { Carousel } from 'react-bootstrap';
-import item1 from '../pictures/pexels-photo-3654938.jpeg';
-import item2 from '../pictures/barber.jpg';
-import item3 from '../pictures/beard trimming.jpg';
+import item1 from '../../pictures/pexels-photo-3654938.jpeg';
+import item2 from '../../pictures/barber.jpg';
+import item3 from '../../pictures/beard trimming.jpg';
 import styled from 'styled-components';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
@@ -28,10 +28,11 @@ position: relative;
 
 @media (min-width: ${breakpoints.xs}) {
 
-  height: 70vw;
+  height: 64vw;
 
   .carousel-indicators {
-    margin: 0 auto;
+    display: none;
+    //margin: 0 auto;
   }
 }
 

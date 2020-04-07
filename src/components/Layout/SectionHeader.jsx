@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Col, Row,} from 'react-bootstrap';
-import pole from '../pictures/pole.png';
+import pole from '../../pictures/pole.png';
 import styled from 'styled-components';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
