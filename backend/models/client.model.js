@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const formSchema = new Schema({
-    name: {type: String},
-    phone: {type: String}
+    name: {type: String, required: true},
+    phone: {type: String, required: true}
 });
 
 const hoursArray = ["9-00", "9-30", "10-00", "10-30", "11-00",
@@ -24,6 +24,6 @@ const clientSchema = new Schema({
   timestamps: true
 });
 
-const Client = mongoose.model('Hour', clientSchema);
-
+const Client = mongoose.model('Client', clientSchema);
+ 
 module.exports = Client;

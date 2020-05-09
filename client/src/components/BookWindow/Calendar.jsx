@@ -25,6 +25,7 @@ export default function Calendar() {
     useEffect(() => {
         axios.get('http://localhost:5000/barber/')
       .then(response => {
+          
         setState({
             currentMonth: state.currentMonth,
             selectedDate: state.selectedDate, 
@@ -36,7 +37,7 @@ export default function Calendar() {
       })
       }, []);
     
-      console.log(state.clients);
+      //console.log(state.clients);
 
 
     let nextMonth = () => {
@@ -88,6 +89,8 @@ export default function Calendar() {
                 onDateClick={onDateClick}
             />
             <Hours 
-                date={dateFns.format(state.selectedDate,"dd-MM-y")}
-                clients={state.clients}
-   
+                state={state}
+            />
+        </Styles>
+    );
+}

@@ -14,28 +14,22 @@ export default function BookForm(props) {
 
     const [state, setState] = useState({
         customerName: "",
-        customerPhone: "",
-        date: props.date,
-        hourKey: props.id
+        customerPhone: ""
     });
 
     let handleChange = event => {
         const { value, name } = event.target;
 
-        setState (prevValue => {
+        setState(prevValue => {
             if (name === "customerName") {
                 return {
                     customerName: value,
                     customerPhone: prevValue.customerPhone,
-                    date: props.date,
-                    hourKey: prevValue.hourKey
                 }
             } else {
                 return {
                     customerName: prevValue.customerName,
                     customerPhone: value,
-                    date: props.date,
-                    hourKey: prevValue.hourKey
                 }
             }
         });
@@ -47,16 +41,15 @@ export default function BookForm(props) {
         const contactData = {
             name: state.customerName,
             phone: state.customerPhone,
-            date: state.date,
-            key: state.hourKey
+            date: props.date,
+            key: props.id,
+            dayId: (props.day.length > 0) ? props.day[0]._id : null
         }
 
-        //console.log(contactData);
-
         axios.post('http://localhost:5000/barber/', contactData)
-      .then(res => console.log(res.data));
+            .then(res => console.log(res.data));
 
-      window.location = '/';
+        window.location = '/';
     }
 
     return (
@@ -64,29 +57,29 @@ export default function BookForm(props) {
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicName">
                     <Form.Label>Your name</Form.Label>
-                    <Form.Control 
+                    <Form.Control
                         type="text"
-                        name="customerName" 
-                        placeholder="Name" 
+                        name="customerName"
+                        placeholder="Name"
                         onChange={handleChange}
-                        value={state.customerName}                        
+                        value={state.customerName}
                     />
                 </Form.Group>
                 <Form.Group controlId="formBasicPhone">
                     <Form.Label>Your phone number</Form.Label>
                     <Form.Control
-                        type="text" 
-                        name="customerPhone" 
+                        type="text"
+                        name="customerPhone"
                         placeholder="Enter phone"
-                        onChange={handleChange} 
-                        value={state.customerPhone} 
-                    />  
+                        onChange={handleChange}
+                        value={state.customerPhone}
+                    />
                 </Form.Group>
-                <Button 
-                    variant="primary" 
+                <Button
+                    variant="primary"
                     type="submit"
                 >
-                    Book visit!     
+                    Book visit!
                 </Button>
             </Form>
         </Styles>
