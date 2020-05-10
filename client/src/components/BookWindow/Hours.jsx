@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import * as dateFns from 'date-fns';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import { Tab, Row, Col, ListGroup } from 'react-bootstrap';
-import BookForm from './BookForm'
-
+import BookForm from './BookForm';
 
 const Styles = styled.div`
 
@@ -12,31 +11,37 @@ const Styles = styled.div`
 
 export default function Hours(props) {
 
+    let Ranges = (openingHour, openingMinutes, numberOfHours) => {
+        let arr = [];
+        let startHour = dateFns.setMinutes(dateFns.setHours(new Date(), openingHour), openingMinutes);
+        let endHour = 0;
+        for (let i = 0; i <= (numberOfHours * 2) - 1; i++) {
+            endHour = dateFns.addMinutes(startHour, 30);
+            arr.push(dateFns.format(startHour, "H.mm") + " - " + dateFns.format(endHour, "H.mm"));
+            startHour = endHour;
+        }
+        return arr;
+    };
+
+    let mongoHours = (openingHour, openingMinutes, numberOfHours) => {
+        let arr = [];
+        let startHour = dateFns.setMinutes(dateFns.setHours(new Date(), openingHour), openingMinutes);
+        for (let i = 0; i < (numberOfHours * 2); i++) {
+            arr.push(dateFns.format(startHour, "H-mm"));
+            startHour = dateFns.addMinutes(startHour, 30);
+        }
+        return arr;
+    };
+
+    const hoursRanges = Ranges(9, 0, 8.5);
+    const mongoHoursArray = mongoHours(9, 0, 8.5);
+
     const selectedDate = props.state.selectedDate;
     const clients = props.state.clients;
-
-    const hoursArray = ["9-00", "9-30", "10-00", "10-30", "11-00",
-        "11-30", "12-00", "12-30", "13-00", "13-30", "14-00",
-        "14-30", "15-00", "15-30", "16-00", "16-30", "17-00"];
-
-    const hoursRanges = ["9.00 - 9.30", "9.30 - 10.00", "10.00 - 10.30", "10.30 - 11.00", "11.00 - 11.30",
-        "11.30 - 12.00", "12.00 - 12.30", "12.30 - 13.00", "13.00 - 13.30", "13.30 - 14.00", "14.00 - 14.30",
-        "14.30 - 15.00", "15.00 - 15.30", "15.30 - 16.00", "16.00 - 16.30", "16.30 - 17.00", "17.00 - 17.30"];
-
-    // let hoursRanges = () => {
-    //     let arr = [];
-    //     for (let i = 9; i < 18; i++) {
-    //        arr.push(((9 + i/3).floor().toString()) + "." + (i * )) 
-    //     }
-    // }
-
-    //hoursSchemaProps();
-
-        const formattedDate = dateFns.format(selectedDate, "dd-MM-y");
-
-        const day = clients.filter(client => {
-            return client.date === formattedDate;
-        });
+    const formattedDate = dateFns.format(selectedDate, "dd-MM-y");
+    const day = clients.filter(client => {
+        return client.date === formattedDate;
+    });
 
     let hoursTable = () => {
 
@@ -81,7 +86,7 @@ export default function Hours(props) {
         let hoursList = [];
         for (let i = 0; i < hoursRanges.length; i++) {
             if (day.length > 0) {
-                if (day[0].hours[hoursArray[i]].name === null) {
+                if (day[0].hours[mongoHoursArray[i]].name === null) {
                     availabeHour(i);
                 } else {
                     disableHour(i);
