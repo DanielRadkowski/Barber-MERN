@@ -1,16 +1,12 @@
 const router = require('express').Router();
 let Client = require('../models/client.model');
+const mongoHoursArray = require('../mongoHoursArray');
 
 router.route('/').get((req, res) => {
     Client.find()
         .then(client => res.json(client))
         .catch(err => res.status(400).json('Error: ' + err));
 });
-
-const hoursArray = ["9-00", "9-30", "10-00", "10-30", "11-00",
-    "11-30", "12-00", "12-30", "13-00", "13-30", "14-00",
-    "14-30", "15-00", "15-30", "16-00", "16-30", "17-00"
-];
 
 router.route('/').post((req, res) => {
 
@@ -23,8 +19,8 @@ router.route('/').post((req, res) => {
     if (dayId === null) {
 
     let hours = {};
-    for (const key of hoursArray) {
-        if (key === hoursArray[mainKey]) {
+    for (const key of mongoHoursArray) {
+        if (key === mongoHoursArray[mainKey]) {
             hours[key] = {
                 name,
                 phone
@@ -39,10 +35,9 @@ router.route('/').post((req, res) => {
 
     const newClient = new Client({
         date: date,
-        hours
+        hours: hours
     });
     
-
     newClient.save()
         .then(() => res.json('Client added!'))
         .catch(err => res.status(400).json('Error: ' + err));
@@ -50,8 +45,8 @@ router.route('/').post((req, res) => {
     } else {
         Client.findById(dayId)
             .then(client => {
-                client.hours[hoursArray[mainKey]].name = name;
-                client.hours[hoursArray[mainKey]].phone = phone;
+                client.hours[mongoHoursArray[mainKey]].name = name;
+                client.hours[mongoHoursArray[mainKey]].phone = phone;
 
                 client.save()
                     .then(() => res.json('Client added to existing day!'))
@@ -59,9 +54,6 @@ router.route('/').post((req, res) => {
             })
             .catch(err => res.status(400).json('Error: ' + err));
     }
-
 });
-
-
 
 module.exports = router;
