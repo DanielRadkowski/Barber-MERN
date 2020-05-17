@@ -45,9 +45,9 @@ const Styles = styled.div`
     }
   }
 
-
-
 `
+
+
 
 export default function BookButton(props) {
 

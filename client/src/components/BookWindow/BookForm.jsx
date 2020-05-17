@@ -8,6 +8,8 @@ import { Button, Form } from 'react-bootstrap';
 
 const Styles = styled.div`
 
+
+
 `
 
 export default function BookForm(props) {
@@ -35,8 +37,8 @@ export default function BookForm(props) {
         });
     }
 
-    let handleSubmit = e => {
-        e.preventDefault();
+    let handleSubmit = event => {
+        event.preventDefault();
 
         const contactData = {
             name: state.customerName,
@@ -70,17 +72,19 @@ export default function BookForm(props) {
                     <Form.Control
                         type="text"
                         name="customerPhone"
-                        placeholder="Enter phone"
+                        placeholder="Phone"
                         onChange={handleChange}
                         value={state.customerPhone}
                     />
-                </Form.Group>
-                <Button
-                    variant="primary"
-                    type="submit"
-                >
-                    Book visit!
-                </Button>
+                </Form.Group>               
+                    <Button
+                        className="mt-3"
+                        variant="info"
+                        type="submit"
+                        size="lg"
+                    >
+                        Book visit!
+                </Button>              
             </Form>
         </Styles>
     );

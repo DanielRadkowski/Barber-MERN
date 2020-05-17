@@ -7,6 +7,28 @@ import BookForm from './BookForm';
 
 const Styles = styled.div`
 
+ 
+@media (min-width: ${breakpoints.xs}) {
+
+    .hours-table {
+        height: 100%;
+    }
+
+    .height-of-column {
+        height: 15.5em;
+    }
+}
+
+@media (min-width: ${breakpoints.lg}) {
+
+    .height-of-column {
+        left: 12.5em;
+    }
+
+    .move-table-left {
+        left: 0;
+    }
+}
 `
 
 export default function Hours(props) {
@@ -51,7 +73,9 @@ export default function Hours(props) {
                     <ListGroup.Item
                         id={i}
                         action
+                        variant="info"
                         href={"#" + i.toString()}
+                        onClick={handleListClick}
                     >
                         {hoursRanges[i]}
                     </ListGroup.Item>
@@ -98,16 +122,25 @@ export default function Hours(props) {
         return hoursList;
     }
 
+    let handleListClick = () => {
+        var element1 = document.getElementById("listCol");
+        element1.classList.add("move-table-left");
+        var element2 = document.getElementById("formHeader");
+        element2.classList.remove("invisible");
+    }
+
     return (
-        <Styles className="" >
+        <Styles className="mt-3">
             <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
-                <Row>
-                    <Col sm={4}>
-                        <ListGroup>
+                <Row className="justify-content-center align-items-baseline">
+                    <Col lg={6} id="listCol" className="mb-5 height-of-column positon-relative">
+                        <h4 className="">Choose hour:</h4>
+                        <ListGroup className="hours-table overflow-auto">
                             {hoursTable().map(item => { return item.hour })}
                         </ListGroup>
                     </Col>
-                    <Col sm={8}>
+                    <Col lg={6} className="mt-3">
+                        <h4 id="formHeader" className="mb-3 invisible">Leave contact:</h4>
                         <Tab.Content>
                             {hoursTable().map(item => { return item.form })}
                         </Tab.Content>
