@@ -47,16 +47,16 @@ export default function CalendarHeader(props) {
         <Styles>
             <Container>
                 <Row className="text-center align-items-center mb-md-3">
-                    <Col onClick={props.prevMonth}>
-                        <i class="fa fa-chevron-left arrow" aria-hidden="true"></i>
+                    <Col xs={4} md={3} onClick={props.prevMonth}>
+                        <i className="fa fa-chevron-left arrow" aria-hidden="true"></i>
                     </Col>
-                    <Col>
+                    <Col xs={4} md={6} className="px-0">
                         <span>
                             <h4>{dateFns.format(props.actualMonth, "MMMM yyyy")}</h4>
                         </span>
                     </Col>
-                    <Col onClick={props.nextMonth}>
-                        <i class="fa fa-chevron-right arrow" aria-hidden="true"></i>
+                    <Col xs={4} md={3} onClick={props.nextMonth}>
+                        <i className="fa fa-chevron-right arrow" aria-hidden="true"></i>
                     </Col>
                 </Row>
             </Container>

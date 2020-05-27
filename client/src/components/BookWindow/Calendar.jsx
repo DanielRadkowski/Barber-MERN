@@ -3,12 +3,12 @@ import { Jumbotron } from 'react-bootstrap';
 import axios from 'axios';
 import styled from 'styled-components';
 import * as dateFns from 'date-fns';
-import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import Hours from './Hours';
 import CalendarHeader from './CalendarHeader';
 import CalendarWeekDays from './CalendarWeekDays';
 import CalendarCells from './CalendarCells';
-import moustache from '../../pictures/moustache-calendar.png'
+import moustache from '../../pictures/moustache-calendar.png';
+import Thanks from './Thanks';
 
 const Styles = styled.div`
 
@@ -21,7 +21,8 @@ export default function Calendar() {
         currentMonth: new Date(),
         selectedDate: new Date(),
         currentDate: new Date(),
-        clients: []
+        clients: [],
+        done: false
     });
 
     useEffect(() => {
@@ -60,31 +61,37 @@ export default function Calendar() {
     }
 
     let onDateClick = day => {
-        if (dateFns.isSameDay(state.currentDate, day) | dateFns.isBefore(state.currentDate, day)) {
+
+
+        if (dateFns.isSameDay(day, state.currentDate) | dateFns.isAfter(day, state.currentDate)) {
             setState({
                 currentMonth: state.currentMonth,
                 selectedDate: day,
                 currentDate: state.currentDate,
                 clients: state.clients
-            });
-
-            // if (dateFns.differenceInCalendarMonths(state.currentMonth, state.selectedDate) > 0) {
-            //     prevMonth();
-            // } else if (dateFns.differenceInCalendarMonths(state.currentMonth, state.selectedDate) < 0) {
-            //     nextMonth();
-            // }
+            });            
         }
+    }
+
+    let thanksScreen = () => {
+        setState({
+            currentMonth: state.currentMonth,
+            selectedDate: state.selectedDate,
+            currentDate: state.currentDate,
+            clients: state.clients,
+            done: true
+        })
     }
 
     return (
         <Styles>
-            <Jumbotron className="pt-2 pt-md-4 pb-3 bg-white rounded text-center">
-            <img src={moustache} alt="moustache" className="mw-100 pb-0 pb-md-4"></img>
+            <Jumbotron className={`${state.done ? "d-none" : ""} pt-2 pt-md-4 pb-3 bg-white rounded text-center`}>
+                <img src={moustache} alt="moustache" className="mw-100 pb-0 pb-md-4"></img>
                 <CalendarHeader
                     prevMonth={prevMonth}
                     nextMonth={nextMonth}
                     actualMonth={state.currentMonth}
-                />    
+                />
                 <CalendarWeekDays
                     actualMonth={state.currentMonth}
                 />
@@ -95,7 +102,9 @@ export default function Calendar() {
             </Jumbotron>
             <Hours
                 state={state}
+                done={thanksScreen}
             />
+            <Thanks ready={state.done} className={`${state.done ? "d-flex" : "d-none"} `} />
         </Styles>
     );
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import Calendar from './Calendar';
 import styled from 'styled-components';
 

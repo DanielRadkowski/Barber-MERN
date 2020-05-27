@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import * as dateFns from 'date-fns';
-import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import { Button, Form } from 'react-bootstrap';
 
-
 const Styles = styled.div`
-
-
 
 `
 
@@ -51,16 +46,18 @@ export default function BookForm(props) {
         axios.post('http://localhost:5000/barber/', contactData)
             .then(res => console.log(res.data));
 
-        window.location = '/';
+        props.done();
     }
 
     return (
         <Styles>
-            <Form onSubmit={handleSubmit}>
+            <Form className={`${state.done ? "d-none" : "" } `} onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicName">
                     <Form.Label>Your name</Form.Label>
                     <Form.Control
+                        required
                         type="text"
+                        minLength="3"
                         name="customerName"
                         placeholder="Name"
                         onChange={handleChange}
@@ -70,9 +67,11 @@ export default function BookForm(props) {
                 <Form.Group controlId="formBasicPhone">
                     <Form.Label>Your phone number</Form.Label>
                     <Form.Control
-                        type="text"
+                        required
+                        type="tel"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
                         name="customerPhone"
-                        placeholder="Phone"
+                        placeholder="123-456-789"
                         onChange={handleChange}
                         value={state.customerPhone}
                     />

@@ -4,6 +4,7 @@ import * as dateFns from 'date-fns';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import { Tab, Row, Col, ListGroup } from 'react-bootstrap';
 import BookForm from './BookForm';
+import OpeningTimes from '../Layout/Contact/OpeningTimes';
 
 const Styles = styled.div`
 
@@ -55,8 +56,12 @@ export default function Hours(props) {
         return arr;
     };
 
-    const hoursRanges = Ranges(9, 0, 8.5);
-    const mongoHoursArray = mongoHours(9, 0, 8.5);
+    const hoursRangesForWeekDay = Ranges(9, 0, 8.5);
+    const mongoHoursArrayForWeekDay = mongoHours(9, 0, 8.5);
+    const hoursRangesForSaturday = Ranges(9, 0, 5);
+    const mongoHoursArrayForSaturday = mongoHours(9, 0, 5);
+    let hoursRanges = [];
+    let mongoHoursArray = [];
 
     const selectedDate = props.state.selectedDate;
     const clients = props.state.clients;
@@ -64,6 +69,14 @@ export default function Hours(props) {
     const day = clients.filter(client => {
         return client.date === formattedDate;
     });
+
+    if (dateFns.isSaturday(selectedDate)) {
+        hoursRanges = hoursRangesForSaturday;
+        mongoHoursArray = mongoHoursArrayForSaturday;
+    } else {
+        hoursRanges = hoursRangesForWeekDay;
+        mongoHoursArray = mongoHoursArrayForWeekDay;
+    }
 
     let hoursTable = () => {
 
@@ -87,6 +100,7 @@ export default function Hours(props) {
                             id={i}
                             date={formattedDate}
                             day={day}
+                            done={props.done}
                         />
                     </Tab.Pane>
                 )
@@ -107,7 +121,7 @@ export default function Hours(props) {
             });
         }
 
-        let hoursList = [];
+        var hoursList = [];
         for (let i = 0; i < hoursRanges.length; i++) {
             if (day.length > 0) {
                 if (day[0].hours[mongoHoursArray[i]].name === null) {
@@ -120,27 +134,30 @@ export default function Hours(props) {
             }
         }
         return hoursList;
+
     }
 
     let handleListClick = () => {
-        var element1 = document.getElementById("listCol");
-        element1.classList.add("move-table-left");
-        var element2 = document.getElementById("formHeader");
-        element2.classList.remove("invisible");
+        var listCol = document.getElementById("list-col");
+        listCol.classList.add("move-table-left");
+        var formHeader = document.getElementById("form-header");
+        formHeader.classList.remove("invisible");
     }
+    
 
     return (
-        <Styles className="mt-3">
+        <Styles className={`${props.state.done ? "d-none" : "" } mt-3`}>
+            <OpeningTimes className={`${dateFns.isSunday(selectedDate) ? "d-block" : "d-none" } pt-lg-3 my-lg-5`} />
             <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
-                <Row className="justify-content-center align-items-baseline">
-                    <Col lg={6} id="listCol" className="mb-5 height-of-column positon-relative">
+                <Row className={`justify-content-center align-items-baseline ${dateFns.isSunday(selectedDate) ? "d-none" : ""}`}>
+                    <Col lg={6} id="list-col" className="mb-5 height-of-column positon-relative">
                         <h4 className="">Choose hour:</h4>
                         <ListGroup className="hours-table overflow-auto">
                             {hoursTable().map(item => { return item.hour })}
                         </ListGroup>
                     </Col>
                     <Col lg={6} className="mt-3">
-                        <h4 id="formHeader" className="mb-3 invisible">Leave contact:</h4>
+                        <h4 id="form-header" className="mb-3 invisible">Leave contact:</h4>
                         <Tab.Content>
                             {hoursTable().map(item => { return item.form })}
                         </Tab.Content>

@@ -3,6 +3,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import styled from 'styled-components';
 
+
 const Styles = styled.div`
 
   .navbar {
@@ -40,7 +41,7 @@ const Styles = styled.div`
 export default function Navigation() {
   return (
     <Styles>
-      <Navbar variant="dark" expand="md" fixed="top" >
+      <Navbar variant="dark" expand="md" fixed="top">
         <Navbar.Brand href="#home">
           <h1>Barber Andrew</h1>
         </Navbar.Brand>

@@ -5,6 +5,7 @@ import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import { Container, Row, Col } from 'react-bootstrap';
 import circle from '../../pictures/red-circle.png';
 
+
 const Styles = styled.div`
 
 @media (min-width: ${breakpoints.xs}) {
@@ -18,6 +19,10 @@ const Styles = styled.div`
         color: #e0e2eb !important;
     }
 
+    .sunday-cell {
+        color: #cc0000;
+    }
+
     .choosen-cell {
         background: url(${circle});
         background-size: 2.5em;
@@ -27,6 +32,7 @@ const Styles = styled.div`
         margin: -10px 0;
         border-style: none;
     }
+    
     .available-cell {
         &:hover {
             cursor: pointer;
@@ -38,6 +44,10 @@ const Styles = styled.div`
             margin: -10px 0;
             border-style: none;
         }
+    }
+
+    .off-pointer-events {
+        pointer-events : none;
     }
 }
 @media (min-width: ${breakpoints.sm}) {
@@ -58,10 +68,6 @@ const Styles = styled.div`
         }
     }   
 }
-
-@media (min-width: ${breakpoints.md}) {
-
-}  
 
 @media (min-width: ${breakpoints.lg}) {
 
@@ -102,10 +108,10 @@ export default function CalendarCells(props) {
             days.push(
                 <Col
                     className={`
-                        ${dateFns.isSameDay(currentDate, day) | dateFns.isBefore(currentDate, day)
-                        ? "available-cell" : "unavailable-cell"}
+                        ${!(dateFns.isSunday(day)) & (dateFns.isSameDay(day, currentDate) | dateFns.isAfter(day, currentDate))
+                        ? "available-cell" : dateFns.isSunday(day) ? "sunday-cell off-pointer-events" : "unavailable-cell"}
                         ${dateFns.isSameDay(day, selectedDate)
-                        ? "choosen-cell" : dateFns.isSameMonth(day, monthStart) ? "" : "text-muted"} 
+                        ? "choosen-cell" : dateFns.isSameMonth(day, monthStart) ? "" : "text-muted off-pointer-events"} 
                         px-0
                         `}
 

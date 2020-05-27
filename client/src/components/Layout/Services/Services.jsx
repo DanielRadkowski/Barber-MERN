@@ -52,7 +52,7 @@ let createCard = service => {
 
 export default function Services() {
   return (
-    <Styles id="services" className="p-5">
+    <Styles id="services" className="p-5">  
       <SectionHeader name="Services" />
       <ServicesDescription />
       <CardColumns className="distent mx-auto">

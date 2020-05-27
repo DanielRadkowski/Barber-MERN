@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.js": "/static/js/main.7ebcaaed.chunk.js",
+    "main.js.map": "/static/js/main.7ebcaaed.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.275afd40.js",
+    "runtime-main.js.map": "/static/js/runtime-main.275afd40.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.a48efea2.chunk.js": "/static/js/2.a48efea2.chunk.js",
+    "static/js/2.a48efea2.chunk.js.map": "/static/js/2.a48efea2.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.9c95c7f4233233675764a972d647cc27.js": "/precache-manifest.9c95c7f4233233675764a972d647cc27.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/static/css/2.47e06e2e.chunk.css.map",
+    "static/js/2.a48efea2.chunk.js.LICENSE.txt": "/static/js/2.a48efea2.chunk.js.LICENSE.txt",
+    "static/media/barber.jpg": "/static/media/barber.e471b76a.jpg",
+    "static/media/beard trimming.jpg": "/static/media/beard trimming.3bc031d1.jpg",
+    "static/media/both.png": "/static/media/both.3f70377a.png",
+    "static/media/head.png": "/static/media/head.1632436d.png",
+    "static/media/moustache-calendar.png": "/static/media/moustache-calendar.80b13db2.png",
+    "static/media/pexels-photo-3654938.jpeg": "/static/media/pexels-photo-3654938.f9b67c42.jpeg",
+    "static/media/pole.png": "/static/media/pole.514f2a82.png",
+    "static/media/razor3.png": "/static/media/razor3.7007b6db.png",
+    "static/media/red-circle.png": "/static/media/red-circle.38c89d7f.png",
+    "static/media/red-scissors.png": "/static/media/red-scissors.c36d8712.png",
+    "static/media/scissors3.png": "/static/media/scissors3.41d407a4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.275afd40.js",
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.a48efea2.chunk.js",
+    "static/js/main.7ebcaaed.chunk.js"
+  ]
+}

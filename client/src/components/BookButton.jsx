@@ -47,8 +47,6 @@ const Styles = styled.div`
 
 `
 
-
-
 export default function BookButton(props) {
 
   const [modalShow, setModalShow] = useState(false);
