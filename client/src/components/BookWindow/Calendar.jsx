@@ -26,7 +26,7 @@ export default function Calendar() {
     });
 
     useEffect(() => {
-        axios.get('https://barber-andrew.herokuapp.com/')
+        axios.get('https://barber-andrew.herokuapp.com/barber/')
             .then(response => {
                 setState({
                     currentMonth: state.currentMonth,
