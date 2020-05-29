@@ -1,15 +1,15 @@
 const router = require('express').Router();
 let Client = require('../models/client.model');
 const mongoHoursArray = require('../mongoHoursArray');
-const cors = require('cors');
 
-router.route('/').get(cors(),(req, res) => {
+
+router.route('/').get((req, res) => {
     Client.find()
         .then(client => res.json(client))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/').post(cors(),(req, res) => {
+router.route('/').post((req, res) => {
 
     const name = req.body.name;
     const phone = req.body.phone;
