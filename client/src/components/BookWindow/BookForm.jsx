@@ -43,7 +43,7 @@ export default function BookForm(props) {
             dayId: (props.day.length > 0) ? props.day[0]._id : null
         }
 
-        axios.post('http://localhost:5000/barber/', contactData)
+        axios.post('https://barber-andrew.herokuapp.com/', contactData)
             .then(res => console.log(res.data));
 
         props.done();
