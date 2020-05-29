@@ -6,31 +6,7 @@ require('dotenv').config();
 
 const app = express();
 
-conf= {
- 
-  // origin handler
-  origin: function (origin, cb) {
-
-      // setup a white list
-      let wl = ['http://localhost:5000/barber/'];
-
-      if (wl.indexOf(origin) != -1) {
-
-          cb(null, true);
-
-      } else {
-
-          cb(new Error('invalid origin: ' + origin), false);
-
-      }
-
-  },
-
-  optionsSuccessStatus: 200
-
-}
-
-app.use(cors(conf));
+app.use(cors());
 
 app.use(express.json());
 
