@@ -6,14 +6,31 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
+conf= {
+ 
+  // origin handler
+  origin: function (origin, cb) {
 
-app.use(
-  cors({
-    origin: ["https://barber-andrew.herokuapp.com"],
-    credentials: true
-  })
-);
+      // setup a white list
+      let wl = ['http://localhost:5000/barber/'];
+
+      if (wl.indexOf(origin) != -1) {
+
+          cb(null, true);
+
+      } else {
+
+          cb(new Error('invalid origin: ' + origin), false);
+
+      }
+
+  },
+
+  optionsSuccessStatus: 200
+
+}
+
+app.use(cors(conf));
 
 app.use(express.json());
 
