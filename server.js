@@ -10,7 +10,7 @@ app.use(cors());
 
 app.use(
   cors({
-    origin: ["http://localhost:5000", "http://localhost:5000/barber"],
+    origin: ["https://barber-andrew.herokuapp.com"],
     credentials: true
   })
 );
