@@ -26,7 +26,7 @@ export default function Calendar() {
     });
 
     useEffect(() => {
-        axios.get('https://localhost:5000/barber/')
+        axios.get('http://localhost:5000/barber/')
             .then(response => {
                 setState({
                     currentMonth: state.currentMonth,
