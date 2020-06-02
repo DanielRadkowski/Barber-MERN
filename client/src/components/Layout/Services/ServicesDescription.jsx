@@ -6,7 +6,7 @@ const Styles = styled.div`
 
     color: white;
 
-@media(min-width: ${breakpoints.md}) {  
+@media(min-width: ${breakpoints.sm}) {  
     
     width: 80vw;
     p {
@@ -14,7 +14,7 @@ const Styles = styled.div`
         font-size: 1em;
     }
 
-@media(min-width: ${breakpoints.xl}) {  
+@media(min-width: ${breakpoints.md}) {  
     
     width: 70vw;
     p {

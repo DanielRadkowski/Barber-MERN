@@ -9,26 +9,27 @@ const Styles = styled.div`
 @media (min-width: ${breakpoints.xs}) {
     .container-fluid {
         padding: 0 0 4em 0;
-        width: 65vw;
         h1 {
-            font-size: 11vw;
-            text-shadow: 0.25vw 0.25vw #000;
+            font-size: 2.5em;
+            text-shadow: 0.07em 0.07em #000;
         }
         img {
-            max-width: 5vw;
-            filter: drop-shadow(0.3vw 0.3vw #000);
+            max-width: 1.25em;
+            filter: drop-shadow(0.2em 0.2em #000);
         }    
-    }  
+    } 
+    .center-col {
+        flex-grow: 0;
+    } 
   }  
 
   @media(min-width: ${breakpoints.sm}) {
     .container-fluid {
-        width: 46vw;
         h1 {
-            font-size: 8vw;
+            font-size: 3.5em;
         }
         img {
-            max-width: 3.6vw;
+            max-width: 2em;
         }    
     }
   }
@@ -37,36 +38,46 @@ const Styles = styled.div`
 
     .container-fluid {
         padding: 2em 0 7em 0;
-        width: 35vw;
         
         h1 {
-          font-size: 6vw;       
+          font-size: 4em;       
         }
       
         img {
-         max-width: 2.6vw; 
+         max-width: 2.5em; 
         }
       }
     }
+    
+@media(min-width: ${breakpoints.lg}) {
+    .container-fluid {   
+        h1 {
+          font-size: 5em;       
+        }
+      
+        img {
+         max-width: 3em; 
+        }
+      }
 
-
+}
 `
 
 export default function SectionHeader(props) {
     return (
         <Styles className="text-white">
-            <Container fluid={true} className="text-center">
+            <Container fluid={true} className="">
                 <Row className="justify-content-center align-items-center">
-                    <Col className="" >
+                    <Col className="text-right" >
                         <img
                             src={pole}
                             alt="pole"
                         />
                     </Col>
-                    <Col className="" >
+                    <Col className="text-center center-col px-md-4 px-lg-5" >
                         <h1>{props.name}</h1>
                     </Col>
-                    <Col className="">
+                    <Col className="text-left ">
                         <img
                             src={pole}
                             alt="pole"

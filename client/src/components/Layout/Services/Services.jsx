@@ -14,11 +14,17 @@ background: #222831;
 
 @media(min-width: ${breakpoints.xs}) {
   .distent {
-    width: 50vw;
+    width: 60vw;
   }
   
   .card-columns {
     column-count: 1;
+  }
+}
+
+@media(min-width: ${breakpoints.sm}) {
+  .distent {
+    width: 55vw;
   }
 }
 

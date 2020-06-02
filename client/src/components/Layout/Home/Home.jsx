@@ -9,6 +9,7 @@ import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
 const Styles = styled.div`
 
+
 position: relative;
 .carousel {
   height: inherit;
@@ -32,7 +33,6 @@ position: relative;
 
   .carousel-indicators {
     display: none;
-    //margin: 0 auto;
   }
 }
 

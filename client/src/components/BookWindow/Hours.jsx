@@ -63,6 +63,7 @@ export default function Hours(props) {
     let hoursRanges = [];
     let mongoHoursArray = [];
 
+    const currentDate = props.state.currentDate;
     const selectedDate = props.state.selectedDate;
     const clients = props.state.clients;
     const formattedDate = dateFns.format(selectedDate, "dd-MM-y");
@@ -84,7 +85,7 @@ export default function Hours(props) {
             hoursList.push({
                 hour: (
                     <ListGroup.Item
-                        id={i}
+                        key={i}
                         action
                         variant="info"
                         href={"#" + i.toString()}
@@ -95,9 +96,8 @@ export default function Hours(props) {
                 ),
 
                 form: (
-                    <Tab.Pane eventKey={"#" + i.toString()}>
+                    <Tab.Pane key={i} eventKey={"#" + i.toString()}>
                         <BookForm
-                            id={i}
                             date={formattedDate}
                             day={day}
                             done={props.done}
@@ -111,7 +111,7 @@ export default function Hours(props) {
             hoursList.push({
                 hour: (
                     <ListGroup.Item
-                        id={i}
+                        key={i}
                         disabled
                         href={"#" + i.toString()}
                     >
@@ -125,12 +125,20 @@ export default function Hours(props) {
         for (let i = 0; i < hoursRanges.length; i++) {
             if (day.length > 0) {
                 if (day[0].hours[mongoHoursArray[i]].name === null) {
-                    availabeHour(i);
+                    if (dateFns.isSameDay(selectedDate, currentDate) && dateFns.getHours(currentDate) >= mongoHoursArrayForWeekDay[i].match(/\d{1,}/)[0]) {
+                        disableHour(i);
+                    } else {
+                        availabeHour(i);
+                    }
                 } else {
                     disableHour(i);
                 }
             } else {
-                availabeHour(i);
+                if (dateFns.isSameDay(selectedDate, currentDate) && dateFns.getHours(currentDate) >= mongoHoursArrayForWeekDay[i].match(/\d{1,}/)[0]) {
+                        disableHour(i);
+                    } else {
+                        availabeHour(i);
+                    }
             }
         }
         return hoursList;
