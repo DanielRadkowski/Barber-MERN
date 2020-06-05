@@ -34,17 +34,19 @@ background: #d65a31;
 export default function Contact() {
   return (
     <Styles id="contact" className="py-5 text-center">
-      <SectionHeader name="Contact" />
-      <div className="pb-5">
-        <h1>Phone:</h1>
-        <h2>Call now and book your visit!</h2>
-        <h2>659 852 666</h2>
+      <div className="px-5">
+        <SectionHeader name="Contact" />
+        <div className="pb-5">
+          <h1>Phone:</h1>
+          <h2>Call now and book your visit!</h2>
+          <h2>659 852 666</h2>
+        </div>
+        <div className="pb-5">
+          <h1>E-mail:</h1>
+          <h2>info@barber-andrew.com</h2>
+        </div>
+        <OpeningTimes className="pb-5" />
       </div>
-      <div className="pb-5">
-        <h1>E-mail:</h1>
-        <h2>info@barber-andrew.com</h2>
-      </div>
-      <OpeningTimes className="pb-5" />
       <MapContainer />
       <BookButton name="Book your visit now!" />
     </Styles>

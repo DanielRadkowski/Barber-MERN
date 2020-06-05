@@ -59,13 +59,12 @@ const Styles = styled.div`
          max-width: 3em; 
         }
       }
-
 }
 `
 
 export default function SectionHeader(props) {
     return (
-        <Styles className="text-white">
+        <Styles className="text-white px-1">
             <Container fluid={true} className="">
                 <Row className="justify-content-center align-items-center">
                     <Col className="text-right" >
@@ -84,7 +83,6 @@ export default function SectionHeader(props) {
                         />
                     </Col>
                 </Row>
-
             </Container>
         </Styles>
     );
