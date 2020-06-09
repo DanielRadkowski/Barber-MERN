@@ -4,28 +4,26 @@ import { Carousel } from 'react-bootstrap';
 import item1 from '../../../pictures/pexels-photo-3654938.jpeg';
 import item2 from '../../../pictures/barber.jpg';
 import item3 from '../../../pictures/beard trimming.jpg';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
-const Styles = styled.div`
-
+const Styles = styled.section`
 
 position: relative;
+
 .carousel {
   height: inherit;
-}
-
-.carousel-inner {
-  height: inherit;
-}
-
-.bg {
   z-index: 1;
   position: absolute;
   top: 0px;
   right: 0px;
   left: 0px;
 }
+
+.carousel-inner {
+  height: inherit;
+}
+
 
 @media (min-width: ${breakpoints.xs}) {
 
@@ -52,12 +50,12 @@ export default function Home() {
   return (
     <Styles id="home" className="p-5">
 
-      <Carousel className="bg">
+      <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
             src={item1}
-            alt="First slide"
+            alt="Barber's stuff"
           />
 
         </Carousel.Item>
@@ -65,14 +63,14 @@ export default function Home() {
           <img
             className="d-block w-100"
             src={item2}
-            alt="Second slide"
+            alt="Black barber trims clients beard"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
             src={item3}
-            alt="Third slide"
+            alt="Beard trimming"
           />
         </Carousel.Item>
       </Carousel>

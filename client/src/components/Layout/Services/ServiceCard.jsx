@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Card } from 'react-bootstrap';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import BookWindow from '../../BookWindow/BookWindow';
@@ -7,9 +7,10 @@ import BookWindow from '../../BookWindow/BookWindow';
 const Styles = styled.div`
 
 @media (min-width: ${breakpoints.xs}) {
+
 cursor: pointer; 
 
-  .card {
+.card {
     font-size: 1.5em;   
   }
 .h5 {
@@ -22,6 +23,7 @@ cursor: pointer;
 }
 
 @media(min-width: ${breakpoints.sm}) {
+
   .card {
       font-size: 6vw;   
     }
@@ -34,8 +36,8 @@ cursor: pointer;
     }  
 }
 
-
 @media(min-width: ${breakpoints.md}) {  
+
     .card {
         font-size: 4vw;     
       }
@@ -49,21 +51,18 @@ cursor: pointer;
   
 @media(min-width: ${breakpoints.lg}) { 
   
-.card {
-  font-size: 3.5vw;
+  .card {
+    font-size: 3.5vw;
    
-}
-.h5 {
-  font-size: 2vw;
-}
+  }
+  .h5 {
+    font-size: 2vw;
+  }
 
-.card-img-top {
-  width: 17vw;
+  .card-img-top {
+    width: 17vw;
+  }
 }
-}
- 
-  
-
 `
 
 export default function ServiceCard(props) {

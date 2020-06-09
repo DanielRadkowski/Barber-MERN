@@ -1,36 +1,37 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import Socials from "./Socials";
 import MiniLogo from "./MiniLogo";
 
-const Styles = styled.div`
+const Styles = styled.footer`
 
-background: #eeeeee;
-height: 10em;
 
 @media (min-width: ${breakpoints.xs}) {
- 
+  
+  background: #eeeeee;
+  height: 10em;
+
   img {
     width: 5em;
   }
   p {
     font-size: 0.75em;
   }
-  .ft {
+  .footer {
     top: 1em;
   }
-  .normal-p {
+  .copyright-p--large-screen {
     right: 5vw;
   }
-  .small-p {
+  .copyright-p--small-screen {
     top: 1em;
   }
 }
 
 
 @media (min-width: ${breakpoints.lg}) {
-  .ft {
+  .footer {
     top: 1.5em;
   }
   p {
@@ -42,12 +43,12 @@ height: 10em;
 export default function Footer() {
   return (
     <Styles >
-      <div className="ft d-flex justify-content-around align-items-center position-relative">
+      <div className="footer d-flex justify-content-around align-items-center position-relative">
         <MiniLogo />
-        <p className="normal-p d-none d-lg-inline-block m-0 text-center position-relative">© Copyright 2020 Barber Andrew</p>
+        <p className="copyright-p--large-screen d-none d-lg-inline-block m-0 text-center position-relative">© Copyright 2020 Barber Andrew</p>
         <Socials />
       </div>
-      <p className="small-p text-center d-block d-lg-none position-relative m-0">© Copyright 2020 Barber Andrew</p>
+      <p className="copyright-p--small-screen text-center d-block d-lg-none position-relative m-0">© Copyright 2020 Barber Andrew</p>
     </Styles>
   );
 }

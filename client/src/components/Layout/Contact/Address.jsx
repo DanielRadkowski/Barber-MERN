@@ -1,10 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const Styles = styled.div`
 
   background: white;
   padding: 3px;
+  
   h3 {
     font-family: 'Anton', sans-serif;
     font-size: 1.5em;

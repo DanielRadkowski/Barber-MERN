@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Col, Row,} from 'react-bootstrap';
 import pole from '../../pictures/pole.png';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
 const Styles = styled.div`
@@ -18,7 +18,7 @@ const Styles = styled.div`
             filter: drop-shadow(0.2em 0.2em #000);
         }    
     } 
-    .center-col {
+    .header__name {
         flex-grow: 0;
     } 
   }  
@@ -65,7 +65,7 @@ const Styles = styled.div`
 export default function SectionHeader(props) {
     return (
         <Styles className="text-white px-1">
-            <Container fluid={true} className="">
+            <Container fluid={true}>
                 <Row className="justify-content-center align-items-center">
                     <Col className="text-right" >
                         <img
@@ -73,10 +73,10 @@ export default function SectionHeader(props) {
                             alt="pole"
                         />
                     </Col>
-                    <Col className="text-center center-col px-md-4 px-lg-5" >
+                    <Col className="text-center px-md-4 px-lg-5 header__name">
                         <h1>{props.name}</h1>
                     </Col>
-                    <Col className="text-left ">
+                    <Col className="text-left">
                         <img
                             src={pole}
                             alt="pole"

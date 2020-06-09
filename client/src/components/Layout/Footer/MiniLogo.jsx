@@ -1,13 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import logo from '../../../pictures/head.png';
 
-const Styles = styled.div`
+const Styles = styled.figure`
 
 img {
     width: 5em;
   }
-  
 
 `
 

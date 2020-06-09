@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import * as dateFns from 'date-fns';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import { Tab, Row, Col, ListGroup } from 'react-bootstrap';

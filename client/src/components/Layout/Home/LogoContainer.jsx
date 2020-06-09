@@ -1,11 +1,11 @@
 import React from 'react';
 import BookButton from '../../../components/BookButton';
 import logo from '../../../pictures/head.png';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Container, Row, Col } from 'react-bootstrap';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
-const Styles = styled.div`
+const Styles = styled.figure`
 
 .container-fluid {
 
@@ -63,23 +63,23 @@ export default function LogoContainer() {
         <Styles className="text-white h-100">
             <Container fluid={true} className="text-center mx-auto">
                 <Row className="justify-content-center align-items-center">
-                    <Col className="" sm={4}>
+                    <Col sm={4}>
                         <h1 className="d-none d-sm-block">Barber</h1>
                         <h1 className="d-block d-sm-none">Barber Andrew</h1>
                     </Col>
-                    <Col className="" sm={3}>
+                    <Col sm={3}>
                         <img
                             className="d-block mx-auto w-100"
                             src={logo}
                             alt="logo"
                         />
                     </Col>
-                    <Col className="" sm={4}>
+                    <Col sm={4}>
                         <h1 className="d-none d-sm-block">Andrew</h1>
                     </Col>
                 </Row>
                 <Row className="my-row justify-content-center">
-                    <Col className="">
+                    <Col>
                         <BookButton name="Book your visit now!" />
                     </Col>
                 </Row>

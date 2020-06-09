@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import * as dateFns from 'date-fns';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -15,15 +15,15 @@ const Styles = styled.div`
         font-size: 1.25em;
     }
 
-    .unavailable-cell {
+    .cell--unavailable {
         color: #e0e2eb !important;
     }
 
-    .sunday-cell {
+    .cell--sunday {
         color: #cc0000;
     }
 
-    .choosen-cell {
+    .cell--choosen {
         background: url(${circle});
         background-size: 2.5em;
         background-repeat: no-repeat;
@@ -33,7 +33,7 @@ const Styles = styled.div`
         border-style: none;
     }
     
-    .available-cell {
+    .cell--available {
         &:hover {
             cursor: pointer;
             background: url(${circle});
@@ -55,12 +55,12 @@ const Styles = styled.div`
     .cell {
         font-size: 1.5em;
     }
-    .choosen-cell { 
+    .cell--choosen { 
         background-size: 3.5em;      
         padding: 15px 0;
         margin: -15px 0;     
     }
-    .available-cell {
+    .cell--available {
         &:hover {
             background-size: 3.5em;
             padding: 15px 0;
@@ -71,12 +71,12 @@ const Styles = styled.div`
 
 @media (min-width: ${breakpoints.lg}) {
 
-    .choosen-cell { 
+    .cell--choosen { 
         background-size: 4em;      
         padding: 20px 0;
         margin: -20px 0;     
     }
-    .available-cell {
+    .cell--available {
         &:hover {
             background-size: 4em;
             padding: 20px 0;
@@ -109,9 +109,9 @@ export default function CalendarCells(props) {
                 <Col
                     className={`
                         ${!(dateFns.isSunday(day)) & (dateFns.isSameDay(day, currentDate) | dateFns.isAfter(day, currentDate))
-                        ? "available-cell" : dateFns.isSunday(day) ? "sunday-cell off-pointer-events" : "unavailable-cell"}
+                        ? "cell--available" : dateFns.isSunday(day) ? "cell--sunday off-pointer-events" : "cell--unavailable"}
                         ${dateFns.isSameDay(day, selectedDate)
-                        ? "choosen-cell" : dateFns.isSameMonth(day, monthStart) ? "" : "text-muted off-pointer-events"} 
+                        ? "cell--choosen" : dateFns.isSameMonth(day, monthStart) ? "" : "text-muted off-pointer-events"} 
                         px-0
                         `}
 

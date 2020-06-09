@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import Calendar from './Calendar';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const StyledModal = styled(Modal)`
 
@@ -13,20 +13,18 @@ const StyledModal = styled(Modal)`
         text-shadow: 0.1em 0.1em #000;
     }
 }
+    .modal-body {
+        background: #eeeeee;
+    }
 
-.modal-body {
-    background: #eeeeee;
-}
+    .modal-footer {
+        background: #eeeeee;
+    }
 
-.modal-footer {
-    background: #eeeeee;
-}
-
-.my-btn {
-    background: #343c4b;
-}
+    .close-btn {
+        background: #343c4b;
+    }
 `
-
 
 export default function BookWindow(props) {
 
@@ -46,7 +44,7 @@ export default function BookWindow(props) {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button 
-                        className="my-btn"
+                        className="close-btn"
                         variant="secondary" 
                         onClick={props.onHide}
                     >

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import axios from 'axios';
 import { Button, Form } from 'react-bootstrap';
 
@@ -17,15 +17,15 @@ export default function BookForm(props) {
     let handleChange = event => {
         const { value, name } = event.target;
 
-        setState(prevValue => {
+        setState(() => {
             if (name === "customerName") {
                 return {
                     customerName: value,
-                    customerPhone: prevValue.customerPhone,
+                    customerPhone: state.customerPhone,
                 }
             } else {
                 return {
-                    customerName: prevValue.customerName,
+                    customerName: state.customerName,
                     customerPhone: value,
                 }
             }

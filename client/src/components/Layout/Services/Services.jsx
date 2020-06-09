@@ -3,45 +3,44 @@ import SectionHeader from '../SectionHeader';
 import ServiceCard from './ServiceCard';
 import ServicesDescription from './ServicesDescription';
 import { CardColumns } from 'react-bootstrap';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import services from './servicesArray';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 
 
-const Styles = styled.div`
+const Styles = styled.section`
 
 background: #222831;
 
 @media(min-width: ${breakpoints.xs}) {
-  .distent {
-    width: 60vw;
-  }
-  
+
   .card-columns {
     column-count: 1;
+    width: 60vw;
   }
 }
 
 @media(min-width: ${breakpoints.sm}) {
-  .distent {
+
+  .card-columns {
     width: 55vw;
   }
 }
 
 @media(min-width: ${breakpoints.md}) {  
-  .distent {
-    width: 80vw;
-  }
+
   .card-columns {
     column-count: 3;
+    width: 80vw;
   }
 }
 
 @media(min-width: ${breakpoints.lg}) {  
-  .distent {
+
+  .card-columns {
     width: 70vw;
   }
-  }
+}
 
 `
 let createCard = service => {
@@ -58,10 +57,10 @@ let createCard = service => {
 
 export default function Services() {
   return (
-    <Styles id="services" className="p-5">  
+    <Styles id="services" className="p-5">
       <SectionHeader name="Services" />
       <ServicesDescription />
-      <CardColumns className="distent mx-auto">
+      <CardColumns className="mx-auto">
         {services.map(createCard)}
       </CardColumns>
     </Styles>

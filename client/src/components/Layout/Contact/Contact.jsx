@@ -1,16 +1,16 @@
 import React from 'react';
 import SectionHeader from '../SectionHeader';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import MapContainer from './MapContainer';
 import BookButton from '../../BookButton';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import OpeningTimes from './OpeningTimes';
 
-const Styles = styled.div`
-
-background: #d65a31;
+const Styles = styled.section`
 
 @media(min-width: ${breakpoints.xs}) {
+
+  background: #d65a31;
 
   h1 {
     font-size: 2em;

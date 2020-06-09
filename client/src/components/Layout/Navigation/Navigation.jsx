@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 
-const Styles = styled.div`
-
+const Styles = styled.nav`
 
   .navbar {
     background-color: #000;
@@ -16,6 +15,7 @@ const Styles = styled.div`
   }
 
   @media(min-width: ${breakpoints.xs}) {
+
     h1 {
       font-size: 1.5em;
     }
@@ -25,6 +25,7 @@ const Styles = styled.div`
   }
 
   @media(min-width: ${breakpoints.lg}) {
+
     h1 {
       display: inline;
       font-size: 2em;
@@ -40,28 +41,28 @@ export default function Navigation() {
 
   const [id, setId] = useState("");
 
-  let offset = elmnt => {
+  let offset = element => {
     window.scrollTo({
-      top: elmnt.offsetTop - 50,
+      top: element.offsetTop - 50,
       behavior: "smooth"
     })
   }
 
   let scrollHome = () => {
-    let elmnt = document.getElementById("home");
-    offset(elmnt);
+    let element = document.getElementById("home");
+    offset(element);
     setId("home");
   }
   
   let scrollServices = () => {
-    let elmnt = document.getElementById("services");
-    offset(elmnt);
+    let element = document.getElementById("services");
+    offset(element);
     setId("services");
   }
   
   let scrollContact = () => {
-    let elmnt = document.getElementById("contact");
-    offset(elmnt);
+    let element = document.getElementById("contact");
+    offset(element);
     setId("contact");
   }
 

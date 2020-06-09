@@ -1,12 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import * as dateFns from 'date-fns';
-import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Styles = styled.div`
 
-    .my-row {
+    .weekdays-row {
         background: #343c4b;
     }
 `
@@ -21,7 +20,7 @@ export default function CalendarWeekDays(props) {
     return (
         <Styles>
             <Container className="">
-                <Row className="my-row text-center border rounded">{days}</Row>
+                <Row className="weekdays-row text-center border rounded">{days}</Row>
             </Container>
         </Styles>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { breakpoints } from 'styled-bootstrap-responsive-breakpoints';
 import Address from './Address';
 import scissors from '../../../pictures/red-scissors.png';

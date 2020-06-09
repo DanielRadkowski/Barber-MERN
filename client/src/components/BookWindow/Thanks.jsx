@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import FadeIn from "react-fade-in";
 import Lottie from "react-lottie";
 import * as loader from "../../animations/splashy-loader.json";
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 
 const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: loader.default,
-  rendererSettings: {
+    loop: true,
+    autoplay: true,
+    animationData: loader.default,
+    rendererSettings: {
     preserveAspectRatio: "xMidYMid slice"
   }
 };

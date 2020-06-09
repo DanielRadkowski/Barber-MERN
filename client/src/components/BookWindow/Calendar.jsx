@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import axios from 'axios';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import * as dateFns from 'date-fns';
 import Hours from './Hours';
 import CalendarHeader from './CalendarHeader';
