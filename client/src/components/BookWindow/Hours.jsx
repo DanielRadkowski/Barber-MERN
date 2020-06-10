@@ -98,6 +98,7 @@ export default function Hours(props) {
                 form: (
                     <Tab.Pane key={i} eventKey={"#" + i.toString()}>
                         <BookForm
+                            id={i}
                             date={formattedDate}
                             day={day}
                             done={props.done}
@@ -121,24 +122,24 @@ export default function Hours(props) {
             });
         }
 
+        let ifTodaysHourGone = i => {
+            if (dateFns.isSameDay(selectedDate, currentDate) && dateFns.getHours(currentDate) >= mongoHoursArrayForWeekDay[i].match(/\d{1,}/)[0]) {
+                disableHour(i);
+            } else {
+                availabeHour(i);
+            }
+        }
+
         var hoursList = [];
         for (let i = 0; i < hoursRanges.length; i++) {
             if (day.length > 0) {
                 if (day[0].hours[mongoHoursArray[i]].name === null) {
-                    if (dateFns.isSameDay(selectedDate, currentDate) && dateFns.getHours(currentDate) >= mongoHoursArrayForWeekDay[i].match(/\d{1,}/)[0]) {
-                        disableHour(i);
-                    } else {
-                        availabeHour(i);
-                    }
+                    ifTodaysHourGone(i);
                 } else {
                     disableHour(i);
                 }
             } else {
-                if (dateFns.isSameDay(selectedDate, currentDate) && dateFns.getHours(currentDate) >= mongoHoursArrayForWeekDay[i].match(/\d{1,}/)[0]) {
-                        disableHour(i);
-                    } else {
-                        availabeHour(i);
-                    }
+                ifTodaysHourGone(i);
             }
         }
         return hoursList;

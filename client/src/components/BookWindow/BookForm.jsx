@@ -45,7 +45,7 @@ export default function BookForm(props) {
 
         axios.post('https://barber-andrew.herokuapp.com/barber/', contactData)
             .then(res => console.log(res.data));
-
+        
         props.done();
     }
 
